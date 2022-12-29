@@ -1,5 +1,5 @@
 import Mock from "mockjs";
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = process.env.BASE_URL;
 
 //登入 /login
 // GET 

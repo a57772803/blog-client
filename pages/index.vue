@@ -8,9 +8,12 @@
         <AuthorIntro></AuthorIntro>
         <Expertise></Expertise>
         <TimeLine></TimeLine>
+        {{ Data }}
+        
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -19,8 +22,24 @@ export default {
   data() {
     return {
       siteMetaInfo: siteMetaInfo,
+      Data:""
     };
   },
+  mounted() {
+    this.$axios.$get("user.json").then((res) => { this.Data=res });
+   this.$api.login.getlogin2("123");
+   this.$api.login.getlogin("123");
+    //this.$api();
+  },
+  methods: {
+    async getTempGameList() {
+    const mockData = await this.$axios.$get("user.json").then((res) => { this.Data=res });
+    console.log("mockData", mockData);
+    console.log("Data",JSON.parse(JSON.stringify(this.Data)))
+
+    }
+},
+
   head: {
     title: siteMetaInfo.title,
     meta: [
@@ -34,7 +53,9 @@ export default {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
+
 };
+
 </script>
 
 <style></style>

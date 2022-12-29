@@ -19,10 +19,10 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["@/assets/css/main.css"],
+  css: ["@/assets/css/main.css","element-ui/lib/theme-chalk/index.css"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/mock',"@/plugins/api"],
+  plugins: ['@/plugins/mock',"@/plugins/api","@/plugins/ElementUI"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -67,6 +67,17 @@ export default {
         tailwindcss: {},
         autoprefixer: {},
       },
+      babel: {
+        "plugins": [
+          [
+            "component",
+            {
+              "libraryName": "element-ui",
+              "styleLibraryName": "theme-chalk"
+            }
+          ]
+        ]
+      }
     },
   },
 };

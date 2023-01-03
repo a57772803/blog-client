@@ -73,7 +73,7 @@ Mock.mock(BASE_URL, (options) => {
   } else return res;
 });
 
-//查看沒有鎖密碼的文章
+//查看鎖密碼的文章
 //{userName}/{id}
 //GET
 //{
@@ -110,24 +110,14 @@ Mock.mock(/[a-zA-Z]+\//, (options) => {
 
 //查看沒有鎖密碼的文章
 //{userName}/{id}
-//GET
-//{
-//   article_id: "",
-//   title: "",
-//   content: "",
-//   islock: "",
-//   password: "",
-//   password_hint: "",
-//   created_time: "",
-//   modified: "",
-//   commentList: { comment_id: "", content: "", created_time: "" },
-// };
+//POST
+//{ "articlePassword": "" }
 Mock.mock(BASE_URL, (options) => {
   const url = options.url.replace(BASE_URL, "");
   const body = JSON.parse(options.body);
   let res = null;
 
-  if (url == BASE_URL) {
+  if (body.articlePassword == "bbb") {
 
     res = {
       article_id: "",
@@ -141,6 +131,39 @@ Mock.mock(BASE_URL, (options) => {
       commentList: { comment_id: "", content: "", created_time: "" },
     };
   } else return res;
+});
+
+//儲存文章
+//{userName}/edit
+//POST
+//{{"title":"","content":"","islock":"0 or 1","password":"","password_hint":""},{"tag_id":"","name":""}}
+Mock.mock(BASE_URL, (options) => {
+  const url = options.url.replace(BASE_URL, "");
+  const body = JSON.parse(options.body);
+  let res = null;
+
+  if (body.articlePassword == "bbb") {
+    res = "Success";
+  } else {
+    res = "新增文章時發生錯誤";
+  }
+  return res;
+});
+
+//取得文章分類
+// /{userName}/getAllTag
+//PGET
+Mock.mock(BASE_URL, (options) => {
+  const url = options.url.replace(BASE_URL, "");
+  const body = JSON.parse(options.body);
+  let res = null;
+
+  if (body.articlePassword == "bbb") {
+    res = "Success";
+  } else {
+    res = "新增文章時發生錯誤";
+  }
+  return res;
 });
 
 

@@ -1,7 +1,6 @@
 import login from "../api/login";
 import { Message } from "element-ui";
 
-
 export default function ({ $axios }, inject) {
   const apiModules = {};
 
@@ -13,26 +12,19 @@ export default function ({ $axios }, inject) {
     // 相关配置
   });
 
-
   //axios 響應配置
   $axios.onResponse((res) => {
     console.log("res", res);
     console.log("request from", res.config.url, "res.data", res.data);
+
+    if (!res.data) {
+      return Promise.reject(res.config.url, "fail");
+    }
   });
 
   $axios.onError((error) => {
-
-    Message({
-      showClose: true,
-      message: error,
-      type: "warning",
-      duration: 0,
-
-    });
+    console.log("error:", error);
   });
-
-
-
 
   //console.log("$axios", $axios);
   //console.log("inject", inject);

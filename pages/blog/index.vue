@@ -39,7 +39,7 @@ export default {
       ])
       .sortBy("date", "asc")
       .fetch();
-
+console.log("articles",articles);
     return {
       articles,
     };

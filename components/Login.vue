@@ -66,8 +66,16 @@ export default {
     login() {
       this.$api.login.getlogin(JSON.stringify(this.loginInfo))
         .then((res) => {
-          console.log(res)
-          this.$router.push({ name: 'index' })
+          this.$store.dispatch("user/userLogin", true);
+        })
+        .catch((err) => {
+          this.$message({
+            showClose: true,
+            message: "登入失敗",
+            type: "error",
+            duration: 100 * 5,
+
+          });
         });
 
 

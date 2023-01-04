@@ -46,6 +46,8 @@ export default {
   },
   async asyncData({ $content, params }) {
     const article = await $content("articles", params.slug).fetch();
+    console.log(article,"article");
+    console.log("params.slug",params.slug);
     return {
       article: article,
     };

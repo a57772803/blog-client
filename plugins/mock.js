@@ -6,9 +6,10 @@ const BASE_URL = process.env.BASE_URL;
 //{"username":"","password":""}
 Mock.mock(BASE_URL + "/login", (options) => {
   let res = null;
+  console.log("options", options)
   const body = JSON.parse(options.body);
-
-  if (body.username == "aaa" && body.password == "bbb")
+  console.log("body", body)
+  if (body.username == "aaa" && body.password == "bbb") {
     res = {
       name: "aaa",
       e_mail: "aaaa@bbb",
@@ -16,7 +17,8 @@ Mock.mock(BASE_URL + "/login", (options) => {
       phone: null,
       birthday: null,
     };
-  else return res;
+  }
+  return res;
 });
 
 
@@ -137,7 +139,7 @@ Mock.mock(BASE_URL, (options) => {
 //{userName}/edit
 //POST
 //{{"title":"","content":"","islock":"0 or 1","password":"","password_hint":""},{"tag_id":"","name":""}}
-Mock.mock(BASE_URL, (options) => {
+Mock.mock(BASE_URL + "/edit", (options) => {
   const url = options.url.replace(BASE_URL, "");
   const body = JSON.parse(options.body);
   let res = null;
@@ -153,7 +155,7 @@ Mock.mock(BASE_URL, (options) => {
 //取得文章分類
 // /{userName}/getAllTag
 //PGET
-Mock.mock(BASE_URL, (options) => {
+Mock.mock(BASE_URL + "/getAllTag", (options) => {
   const url = options.url.replace(BASE_URL, "");
   const body = JSON.parse(options.body);
   let res = null;

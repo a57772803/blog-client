@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env baseURL= nuxt",
+    "dev": "cross-env baseURL=http://localhost:3000 nuxt",
     "stage": "cross-env baseURL=http://aa.bbb.cc nuxt",
     "build": "nuxt build",
     "start": "nuxt start",

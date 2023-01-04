@@ -17,15 +17,15 @@
 
 export default $axios => ({
     async getlogin(userinfo) {
-        console.log("userinfo",userinfo)
-        let res =await $axios.post("login",{username:"aaa",password:"bbb"}).then((res)=>console.log(res));       
+        console.log("userinfo", userinfo)
+        let res = await $axios.post("/login", userinfo);
         return res
     },
     async getlogin2(userinfo) {
-        let res =await $axios.post("123",{aaa:124}).then((res)=>console.log(res));
+        let res = await $axios.post("123", { aaa: 124 }).then((res) => console.log(res));
         console.log(2134);
         console.log(res);
         return res
     }
     // 其它接口
-  })
+})

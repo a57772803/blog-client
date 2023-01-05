@@ -1,14 +1,16 @@
 import Mock from "mockjs";
 const BASE_URL = process.env.BASE_URL;
+const AUTHOR = "aaa";
+const ARTICLE_ID = "a0001";
 
 //登入 /login
-// GET 
+// GET
 //{"username":"","password":""}
 Mock.mock(BASE_URL + "/login", (options) => {
   let res = null;
-  console.log("options", options)
+  console.log("options", options);
   const body = JSON.parse(options.body);
-  console.log("body", body)
+  console.log("body", body);
   if (body.username == "aaa" && body.password == "bbb") {
     res = {
       name: "aaa",
@@ -18,9 +20,8 @@ Mock.mock(BASE_URL + "/login", (options) => {
       birthday: null,
     };
   }
-  return res;
+  return JSON.stringify(res);
 });
-
 
 //註冊 /signup
 //POST
@@ -41,7 +42,7 @@ Mock.mock(BASE_URL + "/signup", (options) => {
 });
 
 //查USER的全部文章
-//{userName} 
+//{userName}
 //GET
 //{
 //   article_id: "",
@@ -54,28 +55,29 @@ Mock.mock(BASE_URL + "/signup", (options) => {
 //   modified: "",
 //   commentList: { comment_id: "", content: "", created_time: "" },
 // };
-Mock.mock(BASE_URL, (options) => {
-  const url = options.url.replace(BASE_URL, "");
+Mock.mock(BASE_URL + `/${AUTHOR}`, (options) => {
+  const param = options.url.replace(BASE_URL, "");
+  console.log(param, "param");
   const body = JSON.parse(options.body);
   let res = null;
 
-  if (url == BASE_URL) {
-
+  if (param.indexOf("aaa") != -1) {
     res = {
-      article_id: "",
-      title: "",
-      content: "",
-      islock: "",
-      password: "",
-      password_hint: "",
-      created_time: "",
-      modified: "",
+      article_id: "1",
+      title: "2",
+      content: "3",
+      islock: "4",
+      password: "5",
+      password_hint: "6",
+      created_time: "7",
+      modified: "8",
       commentList: { comment_id: "", content: "", created_time: "" },
     };
-  } else return res;
+  }
+  return JSON.stringify(res);
 });
 
-//查看鎖密碼的文章
+//查看沒有鎖密碼的文章
 //{userName}/{id}
 //GET
 //{
@@ -89,13 +91,12 @@ Mock.mock(BASE_URL, (options) => {
 //   modified: "",
 //   commentList: { comment_id: "", content: "", created_time: "" },
 // };
-Mock.mock(/[a-zA-Z]+\//, (options) => {
+Mock.mock(BASE_URL + `/${AUTHOR}/${ARTICLE_ID}`, (options) => {
   const url = options.url.replace(BASE_URL, "");
   const body = JSON.parse(options.body);
   let res = null;
 
   if (url == BASE_URL) {
-
     res = {
       article_id: "",
       title: "",
@@ -107,7 +108,8 @@ Mock.mock(/[a-zA-Z]+\//, (options) => {
       modified: "",
       commentList: { comment_id: "", content: "", created_time: "" },
     };
-  } else return res;
+  }
+  return JSON.stringify(res);
 });
 
 //查看沒有鎖密碼的文章
@@ -120,7 +122,6 @@ Mock.mock(BASE_URL, (options) => {
   let res = null;
 
   if (body.articlePassword == "bbb") {
-
     res = {
       article_id: "",
       title: "",
@@ -154,20 +155,16 @@ Mock.mock(BASE_URL + "/edit", (options) => {
 
 //取得文章分類
 // /{userName}/getAllTag
-//PGET
-Mock.mock(BASE_URL + "/getAllTag", (options) => {
-  const url = options.url.replace(BASE_URL, "");
+//GET
+Mock.mock(BASE_URL + `/${AUTHOR}/getAllTag`, (options) => {
   const body = JSON.parse(options.body);
   let res = null;
-
-  if (body.articlePassword == "bbb") {
-    res = "Success";
-  } else {
-    res = "新增文章時發生錯誤";
+  console.log("options.url", options.url);
+  if (options.url.indexOf("aaa") != -1) {
+    res = { tag_id: "111", name: "222" };
   }
-  return res;
+  return JSON.stringify(res);
 });
-
 
 Mock.mock(BASE_URL + "user.json", {
   "list|1-10": [
@@ -176,13 +173,4 @@ Mock.mock(BASE_URL + "user.json", {
       email: "@EMAIL",
     },
   ],
-});
-Mock.mock(BASE_URL + "/123", "post", (options) => {
-  console.log(options, "options");
-  const body = JSON.parse(options.body);
-  console.log(body, "body");
-  return {
-    status: 200,
-    message: "添加成功2",
-  };
 });

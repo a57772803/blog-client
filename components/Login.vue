@@ -64,9 +64,10 @@ export default {
   },
   methods: {
     login() {
-      this.$api.login.getlogin(JSON.stringify(this.loginInfo))
+      let reqData = JSON.stringify(this.loginInfo);
+      this.$api.login.userlogin(reqData)
         .then((res) => {
-          this.$store.dispatch("user/userLogin", true);
+          this.$store.dispatch("user/userLogin", JSON.parse(res.data));
         })
         .catch((err) => {
           this.$message({

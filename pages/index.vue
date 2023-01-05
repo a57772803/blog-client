@@ -20,7 +20,6 @@
 
 <script>
 import siteMetaInfo from "@/data/sitemetainfo";
-import { mapMutations } from 'Vuex';
 export default {
   data() {
     return {
@@ -29,9 +28,8 @@ export default {
     };
   },
   mounted() {
-    //this.$axios.$get("user.json").then((res) => { this.Data = res });
-    this.$api.login.getlogin2("123");
-    this.$api.login.getlogin("123");
+    this.$api.article.getAllTag("aaa");
+    this.$api.article.getArticles("aaa");
     this.$store.commit("todos/add", 10);
     this.$store.commit("increment", 200);
     this.$store.dispatch("fetchCounter", 600);

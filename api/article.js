@@ -16,14 +16,13 @@
 // };
 
 export default ($axios) => ({
-  async userlogin(userinfo) {
-    console.log("userinfo", userinfo);
-    let res = await $axios.post("/login", userinfo);
+  async getArticles(author) {
+    console.log("author", author);
+    let res = await $axios.get(`/${author}`);
     return res;
   },
-  async getlogin(userinfo) {
-    console.log("userinfo", userinfo);
-    let res = await $axios.post("/login", userinfo);
+  async getAllTag(author) {
+    let res = await $axios.get(`/${author}/getAllTag`);
     return res;
   },
   // 其它接口

@@ -19,17 +19,19 @@ export const mutations = {
   SET_LOGIN(state) {
     state.isLogin = true;
   },
-  increment(state) {
-    state.counter++;
-  },
-  change(state, res) {
-    state.counter = res.data;
+  SET_USERINFO(state, userInfo) {
+    state.userInfo.name = userInfo.name;
+    state.userInfo.e_mail = userInfo.e_mail;
+    state.userInfo.username = userInfo.username;
+    state.userInfo.phone = userInfo.phone;
+    state.userInfo.birthday = userInfo.birthday;
   },
 };
 
 export const actions = {
-  userLogin({ commit, state }) {
+  userLogin({ commit, state }, userInfo) {
     commit("SET_LOGIN");
+    commit("SET_USERINFO", userInfo);
     this.$router.push({ name: "index" });
     //console.log("state.getIsLogin", state.isLogin);
   },

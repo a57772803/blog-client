@@ -21,6 +21,11 @@ export default ($axios) => ({
     let res = await $axios.get(`/${author}`);
     return res;
   },
+  async getArticleById(author, article_id) {
+    console.log("article_id", article_id);
+    let res = await $axios.get(`/${author}/${article_id}`);
+    return res;
+  },
   async getAllTag(author) {
     let res = await $axios.get(`/${author}/getAllTag`);
     return res;

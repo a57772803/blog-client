@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "cross-env baseURL=http://localhost:3000 nuxt",
     "stage": "cross-env baseURL=http://aa.bbb.cc nuxt",
-    "build": "nuxt build",
+    "build": "cross-env baseURL=http://localhost:3000  nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "cross-env baseURL=http://localhost:3000 nuxt generate"
   },
   "dependencies": {
     "@nuxt/content": "^1.15.1",
@@ -18,6 +18,7 @@
     "core-js": "^3.19.3",
     "devicon": "^2.15.1",
     "element-ui": "^2.15.12",
+    "mavon-editor": "^2.10.4",
     "mock": "^0.1.1",
     "mockjs": "^1.1.0",
     "nuxt": "^2.15.8",

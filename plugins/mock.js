@@ -1,7 +1,7 @@
 import Mock from "mockjs";
 const BASE_URL = process.env.BASE_URL;
 const AUTHOR = "aaa";
-const ARTICLE_ID = "a0001";
+const ARTICLE_ID = "003";
 
 //登入 /login
 // GET
@@ -70,7 +70,7 @@ Mock.mock(BASE_URL + `/${AUTHOR}`, (options) => {
         islock: "0",
         password: "5",
         password_hint: "6",
-        created_time: "7",
+        created_time: "",
         modified: "8",
         commentList: { comment_id: "", content: "", created_time: "" },
       },
@@ -79,7 +79,7 @@ Mock.mock(BASE_URL + `/${AUTHOR}`, (options) => {
         title: "沙灘",
         content: "沙灘沙灘沙灘",
         islock: "4",
-        password: "0",
+        password: "1",
         password_hint: "6",
         created_time: "7",
         modified: "8",
@@ -89,7 +89,7 @@ Mock.mock(BASE_URL + `/${AUTHOR}`, (options) => {
         article_id: "003",
         title: "仙人掌",
         content: "仙人掌仙人掌仙人掌",
-        islock: "1",
+        islock: "0",
         password: "5",
         password_hint: "6",
         created_time: "7",
@@ -120,16 +120,16 @@ Mock.mock(BASE_URL + `/${AUTHOR}/${ARTICLE_ID}`, (options) => {
   const body = JSON.parse(options.body);
   let res = null;
 
-  if (url == BASE_URL) {
+  if (url.indexOf("aaa") != -1 && url.indexOf("003") != -1) {
     res = {
-      article_id: "",
-      title: "",
-      content: "",
-      islock: "",
-      password: "",
-      password_hint: "",
-      created_time: "",
-      modified: "",
+      article_id: "002",
+      title: "沙灘",
+      content: "沙灘沙灘沙灘",
+      islock: "4",
+      password: "1",
+      password_hint: "6",
+      created_time: "7",
+      modified: "8",
       commentList: { comment_id: "", content: "", created_time: "" },
     };
   }
@@ -140,7 +140,7 @@ Mock.mock(BASE_URL + `/${AUTHOR}/${ARTICLE_ID}`, (options) => {
 //{userName}/{id}
 //POST
 //{ "articlePassword": "" }
-Mock.mock(BASE_URL, (options) => {
+Mock.mock(BASE_URL + `/${AUTHOR}/${ARTICLE_ID}`, "post", (options) => {
   const url = options.url.replace(BASE_URL, "");
   const body = JSON.parse(options.body);
   let res = null;

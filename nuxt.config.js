@@ -1,10 +1,10 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
-   ssr: false,
-   env :{
-    BASE_URL :process.env.baseURL
-   },
+  ssr: false,
+  env: {
+    BASE_URL: process.env.baseURL,
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -22,10 +22,15 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["@/assets/css/main.css","element-ui/lib/theme-chalk/index.css"],
+  css: ["@/assets/css/main.css", "element-ui/lib/theme-chalk/index.css"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/mock',"@/plugins/api","@/plugins/ElementUI"],
+  plugins: [
+    "@/plugins/mock",
+    "@/plugins/api",
+    "@/plugins/ElementUI",
+    "@/plugins/vueMarkdown",
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -42,7 +47,7 @@ export default {
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxt/content", "@nuxtjs/svg", "@nuxt/image","@nuxtjs/axios"],
+  modules: ["@nuxt/content", "@nuxtjs/svg", "@nuxt/image", "@nuxtjs/axios"],
   svg: {
     vueSvgLoader: {
       // vue-svg-loader options
@@ -71,16 +76,16 @@ export default {
         autoprefixer: {},
       },
       babel: {
-        "plugins": [
+        plugins: [
           [
             "component",
             {
-              "libraryName": "element-ui",
-              "styleLibraryName": "theme-chalk"
-            }
-          ]
-        ]
-      }
+              libraryName: "element-ui",
+              styleLibraryName: "theme-chalk",
+            },
+          ],
+        ],
+      },
     },
   },
 };

@@ -68,6 +68,15 @@ export default {
       this.$api.login.userlogin(reqData)
         .then((res) => {
           this.$store.dispatch("user/userLogin", JSON.parse(res.data));
+          this.$message({
+            showClose: true,
+            message: "登入成功",
+            type: "success",
+            duration: 100 * 8,
+
+          });
+
+
         })
         .catch((err) => {
           this.$message({

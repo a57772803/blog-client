@@ -14,7 +14,7 @@
           font-bold
           dark:text-slate-200
         ">
-        <NuxtLink :to="{ name: 'blog-slug', params: { slug: postSlug, slet: 1111 } }">
+        <NuxtLink :to="{ name: 'blog-slug', params: { slug: postSlug } }">
           {{ postTitle }}</NuxtLink>
       </h3>
 
@@ -34,14 +34,15 @@
               font-bold
             ">
             <time class="bg-indigo-500 text-white py-1 px-2 rounded-md" datetime="2022-02-24T12:00:00.000Z">{{
-    formatDate(postDate)
-              }}</time>
+              formatDate(postDate)
+            }}</time>
           </dd>
         </dl>
       </div>
       <br />
     </article>
   </div>
+
 </template>
 
 <script>

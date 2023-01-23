@@ -62,17 +62,41 @@ Mock.mock(BASE_URL + `/${AUTHOR}`, (options) => {
   let res = null;
 
   if (param.indexOf("aaa") != -1) {
-    res = {
-      article_id: "1",
-      title: "2",
-      content: "3",
-      islock: "4",
-      password: "5",
-      password_hint: "6",
-      created_time: "7",
-      modified: "8",
-      commentList: { comment_id: "", content: "", created_time: "" },
-    };
+    res = [
+      {
+        article_id: "001",
+        title: "陽光",
+        content: "陽光陽光陽光陽光",
+        islock: "0",
+        password: "5",
+        password_hint: "6",
+        created_time: "7",
+        modified: "8",
+        commentList: { comment_id: "", content: "", created_time: "" },
+      },
+      {
+        article_id: "002",
+        title: "沙灘",
+        content: "沙灘沙灘沙灘",
+        islock: "4",
+        password: "0",
+        password_hint: "6",
+        created_time: "7",
+        modified: "8",
+        commentList: { comment_id: "", content: "", created_time: "" },
+      },
+      {
+        article_id: "003",
+        title: "仙人掌",
+        content: "仙人掌仙人掌仙人掌",
+        islock: "1",
+        password: "5",
+        password_hint: "6",
+        created_time: "7",
+        modified: "8",
+        commentList: { comment_id: "", content: "", created_time: "" },
+      },
+    ];
   }
   return JSON.stringify(res);
 });

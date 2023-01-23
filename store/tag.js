@@ -1,4 +1,5 @@
 export const state = () => ({
+  author: "aaa",
   tags: [],
 });
 

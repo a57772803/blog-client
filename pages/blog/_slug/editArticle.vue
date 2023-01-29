@@ -1,8 +1,11 @@
 <template>
   <div class="mavonEditor">
-    <mavon-editor ref="md" placeholder="请输入文档内容..." :boxShadow="false"
+    <mavon-editor :language="'zh-TW'" ref="md" placeholder="請输入文字..." :boxShadow="false"
       style="z-index:1;border: 1px solid #d9d9d9;height:50vh" v-model="content" :toolbars="toolbars" />
+
+    <el-button type="primary" @click="show">主要按钮</el-button>
   </div>
+
 </template>
 <script>
 export default {
@@ -50,6 +53,10 @@ export default {
     // 上传图片方法
     $imgAdd(pos, $file) {
       console.log(pos, $file);
+    },
+    show() {
+      console.log(this.$refs.md)
+      console.log(this.$refs.md.d_value);
     }
   }
 };

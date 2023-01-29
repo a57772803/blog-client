@@ -12,8 +12,8 @@ const siteMetaInfo = {
   theme: "system", // system, dark or light
   siteUrl: "https://rathik.dev",
   siteRepo: "#",
-  siteLogo: "../assets/author.png",
-  image: "~/assets/author.png",
+  siteLogo: "/author.png",
+  image: "/author.png",
   socialBanner: "/static/images/twitter-card.png",
   email: "hello@rathik.dev",
   github: "https://github.com/mdrathik",

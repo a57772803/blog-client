@@ -1,7 +1,7 @@
 const siteMetadata = {
   title: "Md Solaiaman | Software Developer",
   author: "Md Solaiman",
-  author_image: "/author.png",
+  author_image: "~/assets/author.png",
   position: "Full Stack Developer",
   location: "Dhaka, Bangladesh",
   headerTitle: "Md Rathik",

@@ -12,7 +12,7 @@
     {{ articles.title }}
     <div class="space-y-16 mx-auto max-w-7xl">
       <blog-item v-for="article in articles" :key="article.article_id" :title="article.title"
-        :description="article.content" :date=Date() :slug="article.article_id"></blog-item>
+        :description="article.description" :date=Date() :slug="article.article_id"></blog-item>
     </div>
   </div>
 </template>

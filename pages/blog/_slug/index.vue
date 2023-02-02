@@ -1,14 +1,14 @@
 <template>
-  <div class="px-4 mx-auto sm:px-6 xl:max-w-5xl xl:px-0 mt-10">
-    <p class="text-center font-bold my-5 text-indigo-500">
+  <div class="px-4 mx-auto mt-10 sm:px-6 xl:max-w-5xl xl:px-0">
+    <p class="my-5 font-bold text-center text-indigo-500">
       {{ formatDate(new Date()) }}
     </p>
-    <h1 class="text-4xl text-gray-700 font-extrabold mb-10 text-center">
+    <h1 class="mb-10 text-4xl font-extrabold text-center text-gray-700">
       {{ article.title }}
     </h1>
-    <div class="flex items-center font-medium mt-6 sm:mx-3 justify-center">
+    <div class="flex items-center justify-center mt-6 font-medium sm:mx-3">
       <img :src="siteMetadata.author_image" loading="lazy" alt=""
-        class="mr-3 w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800" />
+        class="w-10 h-10 mr-3 rounded-full bg-slate-50 dark:bg-slate-800" />
       <div>
         <div class="text-slate-900 dark:text-slate-200">
           {{ siteMetadata.author }}
@@ -18,14 +18,17 @@
         </a>
       </div>
     </div>
-    <img class="mx-auto w-4/5 my-10 rounded-md drop-shadow-sm" :src="article.image" />
+    <img class="w-4/5 mx-auto my-10 rounded-md drop-shadow-sm" :src="article.image" />
 
     <div class="mavonEditor">
-      <mavon-editor :language="'zh-TW'" ref="md" :boxShadow="false" style="z-index:1;height:50vh"
+      <mavon-editor :language="'zh-TW'" ref="md" :boxShadow="false" style="z-index:1;height:50vh;"
         v-model="article.content" :subfield="false" :defaultOpen="'preview'" :editable="false" :toolbarsFlag="false" />
     </div>
-    <div>{{ article.content }}</div>
-    {{ content }}
+
+
+    
+    <!-- <div>{{ article.content }}</div> -->
+    
 
 
   </div>
@@ -128,3 +131,20 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.mavonEditor {
+  width: 100%;
+  height: 100%;
+}
+/*取消預覽框線*/
+.mavonEditor>>> .v-note-wrapper{
+  border: 0;
+
+}
+
+/*複寫背景黑底*/
+.mavonEditor>>> .v-show-content{
+  background-color: white !important;
+} 
+</style>

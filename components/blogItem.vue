@@ -7,13 +7,7 @@
         lg:ml-auto
         xl:max-w-none xl:w-[50rem]
       ">
-      <h3 class="
-          mb-4
-          text-4xl text-slate-700
-          tracking-tight
-          font-bold
-          dark:text-slate-200
-        ">
+      <h3 class="mb-4 text-4xl font-bold tracking-tight text-slate-700 dark:text-slate-200">
         <NuxtLink :to="{ name: 'blog-slug', params: { slug: postSlug } }">
           {{ postTitle }}</NuxtLink>
       </h3>
@@ -23,20 +17,15 @@
           {{ postDescription }}
         </p>
       </div>
-      <div class="mt-auto flex flex-row-reverse items-center justify-end">
+      <div class="flex flex-row-reverse items-center justify-end mt-auto">
         <dl>
           <dt class="sr-only">Date</dt>
-          <dd class="
-              text-sm
-              leading-6
-              dark:text-slate-400
-              lg:absolute lg:top-0 lg:right-full lg:mr-8 lg:whitespace-nowrap
-              font-bold
-            ">
-            <time class="bg-indigo-500 text-white py-1 px-2 rounded-md" datetime="2022-02-24T12:00:00.000Z">{{
+          <dd class="text-sm font-bold leading-6 dark:text-slate-400 lg:absolute lg:top-0 lg:right-full lg:mr-8 lg:whitespace-nowrap">
+            <time class="px-2 py-1 text-white bg-indigo-500 rounded-md" datetime="2022-02-24T12:00:00.000Z">{{
               formatDate(postDate)
             }}</time>
           </dd>
+          <dd><time class="px-2 text-white bg-indigo-500 rounded-md" datetime="2022-02-24T12:00:00.000Z">TAGGG</time></dd>
         </dl>
       </div>
       <br />

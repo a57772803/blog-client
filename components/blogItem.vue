@@ -25,7 +25,12 @@
               formatDate(postDate)
             }}</time>
           </dd>
-          <dd><time class="px-2 text-white bg-indigo-500 rounded-md" datetime="2022-02-24T12:00:00.000Z">TAGGG</time></dd>
+          <dd class="text-sm font-bold leading-6 dark:text-slate-400 lg:absolute lg:top-5 lg:right-full lg:mr-8 lg:whitespace-nowrap">
+
+          </dd>
+          <dd>
+            <time class="px-2 text-white bg-indigo-500 rounded-md" datetime="2022-02-24T12:00:00.000Z">TAGGG</time>
+            <time class="px-2 text-white bg-indigo-500 rounded-md">有鎖</time></time></dd>
         </dl>
       </div>
       <br />
